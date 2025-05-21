@@ -1,102 +1,112 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import Image from "next/image"
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Navigation */}
+      <nav className="flex justify-between items-center p-6 animate-fade-in">
+        <div className="flex items-center space-x-3.5">
+          <div className="hover:rotate-[360deg] transition-transform duration-500">
+            <Image 
+               src={'/logo.svg'}
+              alt="AI Content Logo" 
+              width={40} 
+              height={40} 
+              className="h-10 w-10"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+          <span className="text-xl font-bold text-black-600 ">AI Content Generation</span>
+        </div>
+        
+        <div className="flex space-x-4">
+          <Link href="/sign-in" className="hover:scale-105 active:scale-95 transition-transform">
+            <Button variant="ghost" className="text-black-600 hover:bg-indigo-50">
+              Login
+            </Button>
+          </Link>
+          <Link href="/sign-up" className="hover:scale-105 active:scale-95 transition-transform">
+            <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">
+              Register
+            </Button>
+          </Link>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <main className="container mx-auto px-6 py-16 md:py-24 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 animate-slide-up">
+          Transform Your Content <br className="hidden md:block"/>
+          <span className="text-indigo-600">With AI Power</span>
+        </h1>
+        
+        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 animate-slide-up delay-100">
+          Generate high-quality content in seconds with our advanced AI technology.
+          Perfect for blogs, social media, and marketing materials.
+        </p>
+        
+        <Link href="/sign-in" className="flex flex-col sm:flex-row justify-center gap-4 mb-16 animate-slide-up delay-200">
+          <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-6 text-lg">
+            Get Started Free
+          </Button>
+       
+        </Link>
+        
+        <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-xl border border-gray-200 mx-auto max-w-4xl animate-scale-in">
+          <Image
+            src="/ai-dashboard-preview.jpg"
+            alt="AI Content Generator Preview"
+            fill
+            className="object-cover object-top"
+            priority
+            quality={100}
+          />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Features Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in">Why Choose Our AI Generator</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "⚡",
+                title: "Lightning Fast",
+                description: "Generate content in seconds, not hours"
+              },
+              {
+                icon: "🎯",
+                title: "Precision Quality",
+                description: "AI trained on millions of high-quality samples"
+              },
+              {
+                icon: "🔄",
+                title: "Multiple Formats",
+                description: "Blogs, social posts, ads, and more"
+              }
+            ].map((feature, index) => (
+              <div 
+                key={index} 
+                className="bg-blue-50 p-6 rounded-lg text-center hover:shadow-md transition-all hover:-translate-y-1 duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <span className="text-4xl mb-4 inline-block">{feature.icon}</span>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12 animate-fade-in">
+        <div className="container mx-auto px-6 text-center">
+          <p>© {new Date().getFullYear()} AI Content Generation. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   );
